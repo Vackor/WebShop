@@ -1,0 +1,22 @@
+/*This component gives us the oportunity to create custom styles for the components of the frame*/
+
+/*Header properties*/
+header {
+
+}
+
+/*Body properties*/
+main {
+
+}
+
+/*Footer properties*/
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ada9a9;
+    color: #4a4a4a;
+    text-align: center;
+}

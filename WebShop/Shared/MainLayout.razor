@@ -1,0 +1,74 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+
+@*This component gives us the frame of every website.*@
+
+@*header*@
+<header>
+    @*theme*@
+    <MatThemeProvider Theme="@theme1">
+        @*AppBar
+            - a container
+            - the actual appbar
+            - one row of the appbar
+        *@
+        <MatAppBarContainer>
+            <MatAppBar Fixed="true">
+                <MatAppBarRow>
+                    @*Sections inside the row
+                        - left section with the logo and home button
+                        - right section with searchbar, cart and login
+                    *@
+                    <MatAppBarSection>
+                        <MatIconButton Icon="home" Href="/ButtonLink" OnClick="@HomeOnClick"></MatIconButton>
+                        <MatAppBarTitle >LOGO OR BRAND NAME</MatAppBarTitle> @*TODO change text to actual logo or brand name*@
+                    </MatAppBarSection>
+                    <MatAppBarSection Align="@MatAppBarSectionAlign.End">
+                        <MatTextField @bind-Value="@myStringValue" Label="Search"></MatTextField>
+                        <MatIconButton Icon="search"></MatIconButton>
+                        <MatIconButton Icon="shopping_cart"></MatIconButton>
+                        <MatIconButton Icon="account_circle"></MatIconButton>
+                    </MatAppBarSection>
+                </MatAppBarRow>
+            </MatAppBar>
+
+            @*body*@
+            <MatAppBarContent> 
+                @Body
+            </MatAppBarContent>
+
+        </MatAppBarContainer>
+    </MatThemeProvider>
+</header>
+
+@*footer
+    - contacts, info
+*@
+<div class="footer">
+    <h4>Contact us</h4>
+    <p>E-mail</p>
+    <p>Phone</p>
+</div>
+
+@*code to manage interactive components
+    TODO
+*@
+@code
+{
+    @*search keyword*@
+    string myStringValue;
+
+    @*Theme settings
+        - primary color
+    *@
+    MatTheme theme1 = new MatTheme()
+        {
+            Primary = "#bcaaa4",
+            Secondary = "#bdbdbd"
+        };
+
+    public void HomeOnClick(MouseEventArgs e)
+    {
+        NavManager.NavigateTo("");
+    }
+}
