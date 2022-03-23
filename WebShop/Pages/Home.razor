@@ -8,22 +8,40 @@
         <div class=" welcome_style mat-layout-grid-cell mat-layout-grid-cell-span-12">
             <h1> Leiras/udvozlo szoveg </h1>
         </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12">
+        <div class="description_style mat-layout-grid-cell mat-layout-grid-cell-span-12">
             <h6 align="center"> Tenyleges szoveg </h6>
         </div>
 
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-            <h3>Termekkategoria1</h3>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
         </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-            <h3>Termekkategoria2</h3>
+
+        <div class="card_style mat-layout-grid-cell mat-layout-grid-cell-span-2" @onclick="onCategory1" >
+            <h3>Kategoria1</h3>
         </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-            <h3>Termekkategoria3</h3>
+        <div class="card_style mat-layout-grid-cell mat-layout-grid-cell-span-2" @onclick="onCategory2">
+            <h3>Kategoria2</h3>
         </div>
-        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
-            <h3>Termekkategoria4</h3>
+        <div class="card_style mat-layout-grid-cell mat-layout-grid-cell-span-2" @onclick="onCategory3">
+            <h3>Kategoria3</h3>
+        </div>
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
         </div>
 
     </div>
 </div>
+
+@code {
+    public void onCategory1()
+    {
+        Console.WriteLine("vmi1");
+    }
+    public void onCategory2()
+    {
+        Console.WriteLine("vmi2");
+    }
+    public void onCategory3()
+    {
+        Console.WriteLine("vmi3");
+    }
+}
