@@ -7,8 +7,9 @@ h3 {
 }
 
 .welcome_style {
-    background-color: #95d1b8;
+    padding: 70px;
     height: 200px;
     text-align: center;
     color: #000000;
+    font: initial;
 }

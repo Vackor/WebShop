@@ -6,17 +6,27 @@ header {
 }
 
 /*Body properties*/
-main {
-
+.content {
+    background-color: #F6F4F3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 /*Footer properties*/
 .footer {
+    padding: 20px;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #ada9a9;
-    color: #4a4a4a;
+    background-color: #463f3a;
+    color: #cac7c7;
     text-align: center;
+}
+
+/*footer info style*/
+p {
+    font-size: smaller;
+    margin: 0px;
 }
