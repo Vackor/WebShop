@@ -9,3 +9,8 @@
 .mat_card_clean_margin {
     margin: 0px;
 }
+
+.filters {
+    background-color: #ffffff;
+    padding: 20px;
+}

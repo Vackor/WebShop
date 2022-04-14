@@ -21,7 +21,7 @@
                     *@
                     <MatAppBarSection>
                         <MatIconButton Icon="home" Href="/ButtonLink" OnClick="@HomeOnClick"></MatIconButton>
-                        <MatAppBarTitle >LOGO OR BRAND NAME</MatAppBarTitle> @*TODO change text to actual logo or brand name*@
+                        <MatAppBarTitle>WEBSHOP</MatAppBarTitle> @*TODO change text to actual logo or brand name*@
                     </MatAppBarSection>
                     <MatAppBarSection Align="@MatAppBarSectionAlign.End">
                         <MatTextField @bind-Value="@myStringValue" Label="Search"></MatTextField>
@@ -34,8 +34,9 @@
 
             @*body*@
             <div class="content">
-                <MatAppBarContent> 
+                <MatAppBarContent>
                     @Body
+                    <div class="span"></div>
                 </MatAppBarContent>
             </div>
 
