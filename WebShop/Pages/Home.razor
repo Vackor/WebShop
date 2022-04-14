@@ -2,6 +2,8 @@
 
 <PageTitle>Webshop Home</PageTitle>
 
+@inject NavigationManager NavManager
+
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
         
@@ -34,7 +36,7 @@
 @code {
     public void onCategory1()
     {
-        Console.WriteLine("vmi1");
+        NavManager.NavigateTo("/icecream");
     }
     public void onCategory2()
     {

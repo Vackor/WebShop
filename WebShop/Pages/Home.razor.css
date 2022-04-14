@@ -2,13 +2,13 @@
     height: 100px;
     text-align: center;
     color: #000000;
-    font: initial
+    font: initial;
 }
 
 .description_style {
     text-align: center;
     font: initial;
-    color: #000000
+    color: #000000;
 }
 
 .card_style {
@@ -19,5 +19,5 @@
     height: 200px;
     background-color: #ffffff;
     border: solid;
-    border-color: #bcaaa4
+    border-color: #bcaaa4;
 }

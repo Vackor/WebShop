@@ -1,0 +1,16 @@
+﻿body {
+}
+
+
+.mat_card {
+    max-width: 400px;
+    margin: 10px;
+}
+
+.mat_card_content {
+    padding: 1rem;
+}
+
+.mat_card_clean_margin {
+    margin: 0px;
+}
