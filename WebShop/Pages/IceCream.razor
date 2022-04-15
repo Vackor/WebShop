@@ -6,243 +6,191 @@
     <div class="mat-layout-grid-inner">
 
 
-        <div class="filters mat-layout-grid-cell mat-layout-grid-cell-span-2">
-            <h5>Filters</h5>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2 filter-container">
+
+            <MatH5>Filters</MatH5>
+
+            <MatDivider></MatDivider>
+
+            <MatCheckbox @bind-Value="@inStock" Label="Only in stock"></MatCheckbox>
+
+            <MatDivider></MatDivider>
+            <MatBody1><br />Maximum Price: <b>@maximumPrice</b></MatBody1>
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                    <MatBody2>@minimumPrice</MatBody2>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-7">
+                    <MatSlider @bind-Value="@maximumPrice" ValueMin="@minimumPrice" ValueMax="10000" Discrete="true" Immediate="true"></MatSlider>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2 ">
+                    <MatBody2>10000</MatBody2>
+                </div>
+            </div>
+
+            <MatBody1>Minimum Price: <b>@minimumPrice</b></MatBody1>
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                    <MatBody2>0</MatBody2>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-7">
+                    <MatSlider @bind-Value="@minimumPrice" ValueMin="0" ValueMax="@maximumPrice" Discrete="true" Immediate="true"></MatSlider>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2">
+                    <MatBody2>@maximumPrice</MatBody2>
+                </div>
+            </div>
+
+            <MatDivider></MatDivider>
+
+            <MatBody1><br />Color:</MatBody1>
+            <MatCheckbox @bind-Value="@red" Label="Red"></MatCheckbox>
+            <br />
+            <MatCheckbox @bind-Value="@blue" Label="Blue"></MatCheckbox>
+            <br />
+            <MatCheckbox @bind-Value="@green" Label="Green"></MatCheckbox>
+            <br />
+            <MatCheckbox @bind-Value="@yellow" Label="Yellow"></MatCheckbox>
+            <br />
+            <MatCheckbox @bind-Value="@pink" Label="Pink"></MatCheckbox>
+            <br />
+            <MatCheckbox @bind-Value="@brown" Label="Brown"></MatCheckbox>
+            <br />
+            <MatCheckbox @bind-Value="@white" Label="White"></MatCheckbox>
+
         </div>
 
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-10">
 
-            <h1>Ice Creams</h1>
+            <MatH1>Ice Creams</MatH1>
 
             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-10">
                 <div class="mat-layout-grid-inner">
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
 
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
+                    <div class="@(brown && price1 >= minimumPrice && price1 <= maximumPrice  && !inStock  ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
+                            <MatCardContent>
+                                <MatCardMedia Wide="true" ImageUrl="https://hips.hearstapps.com/hmg-prod/images/190328-chocolate-ice-cream-020-1553897042.jpg?crop=1.00xw%3A0.846xh%3B0%2C0.0409xh&resize=480%3A270"></MatCardMedia>
+                                    <MatHeadline6>
+                                        Chocolate
+                                    </MatHeadline6>
+                                    <MatSubtitle2>
+                                        Made of milk chocolate
+                                    </MatSubtitle2>
                             </MatCardContent>
                         </MatCard>
                     </div>
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
+                    <div class="@(yellow && price2 >= minimumPrice && price2 <= maximumPrice ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
                             <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
+                                <MatCardMedia Wide="true" ImageUrl="https://www.seriouseats.com/thmb/BgKuU1qMxZQFEj4Bo8Fa9wtfExQ=/3695x2078/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__12__20151202-scotch-vanilla-ice-cream-max-falkowitz-ce3b720c669a415ea9147426d809a5c9.jpg"></MatCardMedia>
+                                    <MatHeadline6>
+                                        Vanilla
                                     </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
+                                    <MatSubtitle2>
+                                        Made of vanilla I guess
                                     </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
                             </MatCardContent>
                         </MatCard>
                     </div>
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
+                    <div class="@(pink && price3 >= minimumPrice && price3 <= maximumPrice && !inStock  ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
                             <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
+                                <MatCardMedia Wide="true" ImageUrl="https://image.shutterstock.com/image-photo/ice-cream-punch-chalice-on-260nw-182737244.jpg"></MatCardMedia>
+                               <MatHeadline6>
+                                        Punch
                                     </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
+                                    <MatSubtitle2>
+                                        Probably I should have studied more in high school
                                     </MatSubtitle2>
-                                </div>
 
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
                             </MatCardContent>
                         </MatCard>
                     </div>
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
+                    <div class="@(blue && price1 >= minimumPrice && price1 <= maximumPrice ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
                             <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
+                                <MatCardMedia Wide="true" ImageUrl="https://cms.swensens1112.com/image/product/40/5164.jpg"></MatCardMedia>
+                                    <MatHeadline6>
+                                        Bubble Gum
                                     </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
+                                    <MatSubtitle2>
+                                        Made of smurfs by Gargamel itself
                                     </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
                             </MatCardContent>
                         </MatCard>
                     </div>
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
+                    <div class="@(green && price3 >= minimumPrice && price3 <= maximumPrice ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
                             <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
+                                <MatCardMedia Wide="true" ImageUrl="https://www.coolhullfarm.com/wp-content/uploads/2018/11/1803-Green-Apple-Sorbet.jpg"></MatCardMedia>
+                                    <MatHeadline6>
+                                        Green Apple
                                     </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
+                                    <MatSubtitle2>
+                                        Made of... dunno, apples?
                                     </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
+                            </MatCardContent>
+                        </MatCard>
+                    </div>
+                    
+                    <div class="@(white && price2 >= minimumPrice && price1 <= maximumPrice && !inStock  ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
+                            <MatCardContent>
+                                <MatCardMedia Wide="true" ImageUrl="https://www.moevenpick-icecream.com/sites/default/files/styles/product_detail_image/public/products/photos/stracciatella.png?itok=jEQVC_Kx"></MatCardMedia>
+                                    <MatHeadline6>
+                                        Stracciatella
+                                    </MatHeadline6>
+                                    <MatSubtitle2>
+                                        I have no clue
+                                    </MatSubtitle2>
+                            </MatCardContent>
+                        </MatCard>
+                    </div>
+                    
+                    <div class="@(red && price1 >= minimumPrice && price1 <= maximumPrice ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
+                        <MatCard>
+                            <MatCardContent>
+                                <MatCardMedia Wide="true" ImageUrl="https://gimmethatflavor.com/wp-content/uploads/2021/02/Red-Velvet-Ice-Cream-16.jpg"></MatCardMedia>
+                                    <MatHeadline6>
+                                        Red Velvet
+                                    </MatHeadline6>
+                                    <MatSubtitle2>
+                                        Definitely NOT made of velvet
+                                    </MatSubtitle2>
                             </MatCardContent>
                         </MatCard>
                     </div>
 
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
-                            </MatCardContent>
-                        </MatCard>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
-                            </MatCardContent>
-                        </MatCard>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
-                            </MatCardContent>
-                        </MatCard>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
-                            </MatCardContent>
-                        </MatCard>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
-                            </MatCardContent>
-                        </MatCard>
-                    </div>
-
-                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
-                        <MatCard class="demo-mat-card">
-                            <MatCardContent>
-                                <MatCardMedia Wide="true" ImageUrl="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"></MatCardMedia>
-                                <div class="demo-mat-card-content">
-                                    <MatHeadline6 class="demo-mat-card-clean-margin">
-                                        Our Changing Planet
-                                    </MatHeadline6>
-                                    <MatSubtitle2 class="demo-mat-card-clean-margin">
-                                        by Kurt Wagner
-                                    </MatSubtitle2>
-                                </div>
-
-                                <MatBody2 class="demo-mat-card-content demo-mat-card-clean-margin">
-                                    Visit ten places on our planet that are undergoing the biggest changes today.
-                                </MatBody2>
-                            </MatCardContent>
-                        </MatCard>
-                    </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>
 
 
 @code {
+    bool inStock = false;
+    int maximumPrice = 10000;
+    int minimumPrice = 0;
+
+    static bool red = true;
+    static bool blue = true;
+    static bool green = true;
+    static bool yellow = true;
+    static bool pink = true;
+    static bool brown = true;
+    static bool white = true;
+
+    int price1 = 1200;
+    int price2 = 6500;
+    int price3 = 9800;
 
 }

@@ -22,10 +22,10 @@
             <h3>Ice Creams</h3>
         </div>
         <div class="card_style mat-layout-grid-cell mat-layout-grid-cell-span-2" @onclick="onCategory2">
-            <h3>Kategoria2</h3>
+            <h3>Also Ice Creams</h3>
         </div>
         <div class="card_style mat-layout-grid-cell mat-layout-grid-cell-span-2" @onclick="onCategory3">
-            <h3>Kategoria3</h3>
+            <h3>Still Ice Creams</h3>
         </div>
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
@@ -43,10 +43,10 @@
     }
     public void onCategory2()
     {
-        Console.WriteLine("vmi2");
+        NavManager.NavigateTo("/icecream");
     }
     public void onCategory3()
     {
-        Console.WriteLine("vmi3");
+        NavManager.NavigateTo("/icecream");
     }
 }

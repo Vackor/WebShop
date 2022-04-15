@@ -1,0 +1,105 @@
+﻿@page "/signup"
+@inject NavigationManager NavManager
+
+<PageTitle>Sign Up</PageTitle>
+
+@using System.ComponentModel.DataAnnotations
+@using System.IO
+@using System.Net.Http.Headers
+<EditForm Model="myModel" OnValidSubmit="Success">
+    <DataAnnotationsValidator />
+
+    <div align="center">
+
+        <MatH1>
+            Create an account
+        </MatH1>
+
+        <p>
+            <MatTextField Label="Username" @bind-Value="myModel.Username" />
+            <ValidationMessage For="@(() => myModel.Username)" />
+        </p>
+        <p>
+            <MatTextField Label="Password" @bind-Value="myModel.Password" Type="password" />
+            <ValidationMessage For="@(() => myModel.Password)" />
+        </p>
+        <p>
+            <MatDatePicker Label="Date of Birth" @bind-Value="myModel.DateOfBirth" />
+            <ValidationMessage For="@(() => myModel.DateOfBirth)" />
+        </p>
+        <p>
+            <MatSelect Label="Gender" @bind-Value="myModel.Gender">
+                <MatOptionString Value="Male">Male</MatOptionString>
+                <MatOptionString Value="Female">Female</MatOptionString>
+            </MatSelect>
+            <ValidationMessage For="@(() => myModel.Gender)" />
+        </p>
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            <MatButton Type="submit" Raised="true">Sign up</MatButton>
+            <MatButton Raised="true" OnClick="Reset">Reset</MatButton>
+        </div>
+
+    </div>
+
+</EditForm>
+
+@code {
+    class GenderDef
+    {
+        public string Name { get; set; }
+
+        public GenderDef(string name)
+        {
+            Name = name;
+        }
+    }
+
+    string[] GenderItems = new[]
+            {
+        "Male",
+        "Female"
+    };
+
+    [Inject]
+    IJSRuntime JS { get; set; }
+
+    async Task Success() =>
+        await JS.InvokeAsync<object>("alert", "Now you can log in!");
+        //NavManager.NavigateTo("/login");
+
+    LoginModel myModel = new LoginModel();
+
+    void Reset()
+    {
+        myModel.Username = null;
+        myModel.Password = null;
+        myModel.Gender = null;
+        myModel.DateOfBirth = DateTime.MinValue;
+    }
+
+    public class LoginModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        [MinLength(8)]
+        public string Password { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+
+        [Required]
+        [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]
+        public DateTime DateOfBirth { get; set; }
+
+        public static ValidationResult RequiredDateTime(DateTime value, ValidationContext vc)
+        {
+            return value > DateTime.MinValue && value <= DateTime.Today
+                ? ValidationResult.Success
+                : new ValidationResult($"The {vc.MemberName} field is required and cannot be later than today.", new[] { vc.MemberName });
+        }
+    }
+
+}

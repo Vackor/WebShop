@@ -1,0 +1,45 @@
+﻿@page "/login"
+
+@inject NavigationManager NavManager
+
+<PageTitle>Log In</PageTitle>
+
+<div align="center">
+
+    <MatH1>
+        Log In 
+    </MatH1>
+    <MatTextField @bind-Value="@username" Label="Username"></MatTextField>
+    <br />
+    <MatTextField @bind-Value="@password" Label="password" Type="password"></MatTextField>
+    <br />
+    <br />
+    <MatButton OnClick="@loginOnClick" Outlined="true">Log in</MatButton>
+
+    <br />
+    <br />
+    <MatBody2> Don't have an account yet?</MatBody2>
+    <MatButtonLink Href="/signup">Sign up!</MatButtonLink>
+
+    <MatSnackbar @bind-IsOpen="@snackBarIsOpen">
+        <MatSnackbarContent>Wrong username or password</MatSnackbarContent>
+    </MatSnackbar>
+
+</div>
+
+@code
+{
+    string username = "";
+    string password = "";
+
+    bool snackBarIsOpen = false;
+    void loginOnClick()
+    {
+        if (username == "reka" && password == "reka") NavManager.NavigateTo("/profile");
+        else
+        {
+            snackBarIsOpen = true;
+            this.StateHasChanged();
+        }
+    }
+}

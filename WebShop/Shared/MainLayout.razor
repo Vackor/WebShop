@@ -20,14 +20,14 @@
                         - right section with searchbar, cart and login
                     *@
                     <MatAppBarSection>
-                        <MatIconButton Icon="home" Href="/ButtonLink" OnClick="@HomeOnClick"></MatIconButton>
+                        <MatIconButton Icon="home" OnClick="@HomeOnClick"></MatIconButton>
                         <MatAppBarTitle>WEBSHOP</MatAppBarTitle> @*TODO change text to actual logo or brand name*@
                     </MatAppBarSection>
                     <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-                        <MatTextField @bind-Value="@myStringValue" Label="Search"></MatTextField>
+                        <MatTextField Class="searchbar" @bind-Value="@myStringValue" Label="Search"></MatTextField>
                         <MatIconButton Icon="search"></MatIconButton>
                         <MatIconButton Icon="shopping_cart"></MatIconButton>
-                        <MatIconButton Icon="account_circle"></MatIconButton>
+                        <MatIconButton Icon="account_circle" OnClick="@profileOnClick"></MatIconButton>
                     </MatAppBarSection>
                 </MatAppBarRow>
             </MatAppBar>
@@ -70,8 +70,16 @@
             Secondary = "#bdbdbd"
         };
 
-    public void HomeOnClick(MouseEventArgs e)
+    void HomeOnClick()
     {
         NavManager.NavigateTo("");
+    }
+
+    bool loggedIn = true;
+
+    void profileOnClick()
+    {
+        string? page = loggedIn ? "/profile" : "/login";
+        NavManager.NavigateTo(page);
     }
 }

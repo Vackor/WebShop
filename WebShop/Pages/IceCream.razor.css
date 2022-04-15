@@ -1,16 +1,12 @@
-﻿.mat_card {
-    margin: 10px;
-}
-
-.mat_card_content {
-    padding: 1rem;
-}
-
-.mat_card_clean_margin {
-    margin: 0px;
-}
-
-.filters {
+﻿.filter-container {
     background-color: #ffffff;
     padding: 20px;
+}
+
+.card-style {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
 }

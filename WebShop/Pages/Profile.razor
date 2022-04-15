@@ -1,0 +1,92 @@
+﻿@page "/profile"
+
+<PageTitle>Profile</PageTitle>
+
+<div align="center">
+    <MatH1>My Profile</MatH1>
+</div>
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2"></div>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            <MatH4>Profile picture</MatH4>
+            <br />
+            <img src="https://designdroops.cafeblog.hu/files/2013/10/stick_man_by_minimoko94-d2zvfn8.png" height="400">
+            <br />
+            <br />
+            <MatButton OnClick="@onChangePic" Label="Change Picture" Outlined="true"></MatButton>
+        </div>
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+            <MatList SingleSelection="true" TwoLine="true">
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>First name</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>Reka</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>Last name</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>Gaal</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>Gender</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>Female</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>Date of birth</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>1999. 16. 14.</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>Town</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>Budapest</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>E-mail</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>jnmjkl@gmail.com</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>Phone number</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>+36 20 588 8671</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+                <MatListDivider></MatListDivider>
+                <MatListItem>
+                    <MatListItemText>
+                        <MatListItemPrimaryText>Number of orders</MatListItemPrimaryText>
+                        <MatListItemSecondaryText>12</MatListItemSecondaryText>
+                    </MatListItemText>
+                </MatListItem>
+
+            </MatList>
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    void onChangePic()
+    {
+
+    }
+}
