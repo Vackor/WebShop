@@ -45,38 +45,12 @@
 </EditForm>
 
 @code {
-    class GenderDef
-    {
-        public string Name { get; set; }
-
-        public GenderDef(string name)
-        {
-            Name = name;
-        }
-    }
-
-    string[] GenderItems = new[]
-            {
-        "Male",
-        "Female"
-    };
-
     [Inject]
     IJSRuntime JS { get; set; }
 
     async Task Success() =>
         await JS.InvokeAsync<object>("alert", "Now you can log in!");
-        //NavManager.NavigateTo("/login");
 
-    LoginModel myModel = new LoginModel();
-
-    void Reset()
-    {
-        myModel.Username = null;
-        myModel.Password = null;
-        myModel.Gender = null;
-        myModel.DateOfBirth = DateTime.MinValue;
-    }
 
     public class LoginModel
     {

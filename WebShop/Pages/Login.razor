@@ -26,20 +26,3 @@
     </MatSnackbar>
 
 </div>
-
-@code
-{
-    string username = "";
-    string password = "";
-
-    bool snackBarIsOpen = false;
-    void loginOnClick()
-    {
-        if (username == "reka" && password == "reka") NavManager.NavigateTo("/profile");
-        else
-        {
-            snackBarIsOpen = true;
-            this.StateHasChanged();
-        }
-    }
-}
