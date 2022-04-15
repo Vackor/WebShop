@@ -52,34 +52,3 @@
     <p>E-mail</p>
     <p>Phone</p>
 </div>
-
-@*code to manage interactive components
-    TODO
-*@
-@code
-{
-    @*search keyword*@
-    string myStringValue;
-
-    @*Theme settings
-        - primary color
-    *@
-    MatTheme theme1 = new MatTheme()
-        {
-            Primary = "#bcaaa4",
-            Secondary = "#bdbdbd"
-        };
-
-    void HomeOnClick()
-    {
-        NavManager.NavigateTo("");
-    }
-
-    bool loggedIn = false;
-
-    void profileOnClick()
-    {
-        string? page = loggedIn ? "/profile" : "/login";
-        NavManager.NavigateTo(page);
-    }
-}
