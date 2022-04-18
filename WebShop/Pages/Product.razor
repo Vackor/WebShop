@@ -1,0 +1,72 @@
+﻿@page "/product"
+
+<PageTitle>Product</PageTitle>
+
+<div class="mat-layout-grid">
+    <div class="mat-layout-grid-inner">
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12" align="center">
+            <MatH2>
+                @Global.theChosenOne.Name
+            </MatH2>
+            <MatDivider></MatDivider>
+            <br />
+            <br />
+        </div>
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2"></div>
+        <div class="paper mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            <img src="@Global.theChosenOne.ImageUrl" width="100%">
+            <br />
+            <br />
+            
+            <MatBody1>Amount:</MatBody1>
+            <MatNumericUpDownField @bind-Value=@amount DecimalPlaces=0 Minimum=0 Maximum=10></MatNumericUpDownField>
+            <br />
+            <br />
+
+            <div class="mat-layout-grid-inner">
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6" align="left">
+                    <MatBody1>Price for one: @Global.theChosenOne.Price</MatBody1>
+                </div>
+                <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6" align="right">
+                    <MatBody1>Price: @toPay()</MatBody1>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+
+            <MatTable Items="@allergens" ShowPaging="false">
+                <MatTableHeader>
+                    <th>Allergen</th>
+                    <th>Contains</th>
+                </MatTableHeader>
+                <MatTableRow>
+                    <td>@context.Name</td>
+                    <td>@context.Contains</td>
+                </MatTableRow>
+            </MatTable>
+
+            <br />
+            <br />
+            <br />
+
+            @if (@Global.theChosenOne.InStock)
+            {
+                <div width="100%" align="center">
+                    <MatButton Raised="true" Icon="payment" OnClick="@onAddToCart">Add to cart</MatButton>
+                </div>
+            }
+            else
+            {
+                <div width="100%" align="center">
+                    <MatBody1>Sold out</MatBody1>
+                </div>
+            }
+        </div>
+
+        <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2"></div>
+
+    </div>
+</div>

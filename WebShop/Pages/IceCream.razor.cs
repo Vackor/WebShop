@@ -2,20 +2,28 @@
 {
     public partial class IceCream
     {
-        bool inStock = false;
-        int maximumPrice = 10000;
-        int minimumPrice = 0;
+        bool onlyInStock = false;
+        int setMax;
+        int setMin;
+        int minPrice;
+        int maxPrice;
 
-        static bool red = true;
-        static bool blue = true;
-        static bool green = true;
-        static bool yellow = true;
-        static bool pink = true;
-        static bool brown = true;
-        static bool white = true;
+        static bool[] checkboxes = { true, true, true, true, true, true, true };
 
-        int price1 = 1200;
-        int price2 = 6500;
-        int price3 = 9800;
+        public IceCream()
+        {
+            if (Global.cards.Count == 0)
+            {
+                for (int i = 0; i < Global.names.Length; i++)
+                {
+                    Global.cards.Add(new Card(Global.names[i], Global.prices[i], Global.descriptions[i], Global.urls[i], Global.colors[i], Global.stocks[i])); ;
+                }
+            }
+            minPrice = Global.prices.Min();
+            maxPrice = Global.prices.Max();
+            setMin = minPrice;
+            setMax = maxPrice;
+            
+        }
     }
 }

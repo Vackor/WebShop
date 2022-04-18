@@ -17,12 +17,15 @@ namespace WebShop.Shared
             NavManager.NavigateTo("");
         }
 
-        bool loggedIn = false;
-
         void profileOnClick()
         {
-            string? page = loggedIn ? "/profile" : "/login";
+            string? page = Global.loggedIn ? "/profile" : "/login";
             NavManager.NavigateTo(page);
+        }
+        
+        void cartOnClick()
+        {
+            NavManager.NavigateTo("/cart");
         }
     }
 }

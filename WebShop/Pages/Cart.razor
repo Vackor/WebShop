@@ -1,0 +1,9 @@
+﻿@page "/cart"
+
+<PageTitle>Cart</PageTitle>
+
+@foreach (var item in Global.products){
+    <p>
+        @item.Product.Name : @item.Amount
+    </p>
+}

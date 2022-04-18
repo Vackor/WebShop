@@ -8,7 +8,11 @@
         bool snackBarIsOpen = false;
         void loginOnClick()
         {
-            if (username == "reka" && password == "reka") NavManager.NavigateTo("/profile");
+            if (username == "reka" && password == "reka") 
+            { 
+                Global.loggedIn = true;
+                NavManager.NavigateTo("/profile"); 
+            }
             else
             {
                 snackBarIsOpen = true;
