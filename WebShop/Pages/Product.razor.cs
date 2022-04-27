@@ -1,26 +1,12 @@
 ﻿namespace WebShop.Pages
 {
 
-    public class Allergen
-    {
-        private string name;
-        private bool contains;
-
-        public string Name { get { return name; } }
-        public bool Contains { get { return contains; } }
-
-        public Allergen(string name, bool contains)
-        {
-            this.name = name;
-            this.contains = contains;
-        }
-    }
-
     public partial class Product
     {
-        int amount;
-        public int toPay() { return amount * Global.theChosenOne.Price; }
+        // amount to order
+        public int amount;
 
+        // list of allergens
         private Allergen[] allergens = new[]
         {
             new Allergen("milk", true),
@@ -30,28 +16,35 @@
             new Allergen("wheat", false)
         };
 
+        // constructor
         public Product()
         {
             amount = 0;
         }
 
+        // price to pay for the amount
+        public int toPay() { return amount * Global.theChosenOne.Price; }
+
+        // add to cart button callback
         public void onAddToCart()
         {
             bool found = false;
-            for (int i = 0; i < Global.products.Count; i++)
+            // if item is already in cart, it increases the amount
+            foreach(var item in Global.inCart)
             {
-                for (int j = 0; j < Global.cards.Count; j++)
+                if (item.Product.Name == Global.theChosenOne.Name)
                 {
-                    if (Global.products[i].Product.Name == Global.cards[j].Name)
-                    {
-                        found = true;
-                        Global.products[i].Amount += amount;
-                        break;
-                    }
+                    item.Amount += amount;
+                    found = true;
+                    break;
                 }
-                if (found) break;
             }
-            if (!found) Global.products.Add(new CartElement(Global.theChosenOne, amount));
+            // else it adds the item to the cart
+            if (!found)
+            {
+                Global.inCart.Add(new CartElement(Global.theChosenOne, amount));
+            }
+            amount = 0;
         }
     }
 }

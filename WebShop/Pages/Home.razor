@@ -1,4 +1,5 @@
-﻿@page "/"
+﻿@*Home page of the webshop*@
+@page "/"
 
 <PageTitle>Webshop Home</PageTitle>
 
@@ -8,9 +9,12 @@
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
 
+        @*Welcome text in the middle of the first row*@
         <div class=" welcome_style mat-layout-grid-cell mat-layout-grid-cell-span-12">
             <h1> Welcome! </h1>
         </div>
+
+        @*Description for the page*@
         <div class="description_style mat-layout-grid-cell mat-layout-grid-cell-span-12">
             <h6 align="center"> @szoveg1 <br /> <br /> @szoveg2 </h6>
         </div>
@@ -18,6 +22,8 @@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-3">
         </div>
 
+        @*Product Categories
+        There could be more categories but in terms of my task that would make no difference*@
         <div class="card_style mat-layout-grid-cell mat-layout-grid-cell-span-2" @onclick="onCategory1">
             <h3>Ice Creams</h3>
         </div>

@@ -2,6 +2,7 @@
 
 <PageTitle>Profile</PageTitle>
 
+@* Label *@
 <div align="center">
     <MatH1>My Profile</MatH1>
 </div>
@@ -11,15 +12,14 @@
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2"></div>
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
+             @* Profile picture and change picture button *@
             <MatH4>Profile picture</MatH4>
             <br />
             <img src="https://designdroops.cafeblog.hu/files/2013/10/stick_man_by_minimoko94-d2zvfn8.png" height="400">
-            <br />
-            <br />
-            <MatButton OnClick="@onChangePic" Label="Change Picture" Outlined="true"></MatButton>
         </div>
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+            @* User info in a list *@
             <MatList SingleSelection="true" TwoLine="true">
                 <MatListItem>
                     <MatListItemText>

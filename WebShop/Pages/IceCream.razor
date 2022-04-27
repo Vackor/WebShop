@@ -1,19 +1,25 @@
-﻿@page "/icecream"
+﻿@* Main page of ice creams *@
+
+@page "/icecream"
 
 <PageTitle>Ice Cream</PageTitle>
 
 <div class="mat-layout-grid">
     <div class="mat-layout-grid-inner">
-
-
+        
+        @* Filters *@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2 filter-container">
 
+            @* Label *@
             <MatH5>Filters</MatH5>
 
+            @* A line to divide the label from filter categories *@
             <MatDivider></MatDivider>
 
+            @* Checkbox, to only show those in stock *@
             <MatCheckbox @bind-Value="@onlyInStock" Label="Only in stock"></MatCheckbox>
 
+            @* Sliders to set maximum and minimum prices *@
             <MatDivider></MatDivider>
             <MatBody1><br />Maximum Price: <b>@setMax</b></MatBody1>
             <div class="mat-layout-grid-inner">
@@ -41,8 +47,10 @@
                 </div>
             </div>
 
+            @* A line to divide the categories *@
             <MatDivider></MatDivider>
 
+            @* Checkboxes to select colors to show *@
             <MatBody1><br />Color:</MatBody1>
             <MatCheckbox @bind-Value="@checkboxes[0]" Label="Red"></MatCheckbox>
             <br />
@@ -60,30 +68,36 @@
 
         </div>
 
-
+        @* Ice creams *@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-10">
 
+            @* Label *@
             <MatH1>Ice Creams</MatH1>
 
             <div class="mat-layout-grid-cell mat-layout-grid-cell-span-10">
                 <div class="mat-layout-grid-inner">
 
+                    @* Create a card for every kind of ice cream and show them according to the filters *@
                     @foreach (var card in @Global.cards)
                     {
                         <div class="@(@checkboxes[card.Color] && @card.Price <= setMax && @card.Price >= setMin && ( @card.InStock || !onlyInStock) ? "mat-layout-grid-cell mat-layout-grid-cell-span-3 card-style mat-card-content" : "hidden")">
                             <MatCard>
                                 <MatCardContent>
                                     <MatCardMedia Wide="true" ImageUrl=@card.ImageUrl></MatCardMedia>
+                                    @* Name of the product *@
                                     <MatHeadline6>
                                         @card.Name
                                     </MatHeadline6>
                                     <MatSubtitle2>
+                                        @* Description of the product *@
                                         @card.Description
                                     </MatSubtitle2>
                                 </MatCardContent>
                                 <MatCardActions>
+                                    @* Button to open the page of the product *@
                                     <MatButtonLink OnClick="@card.onSelected" Href="/product">See more...</MatButtonLink>
                                     <MatCardActionIcons>
+                                        @* Price *@
                                         <MatBody1>@card.Price Ft</MatBody1>
                                     </MatCardActionIcons>
                                 </MatCardActions>

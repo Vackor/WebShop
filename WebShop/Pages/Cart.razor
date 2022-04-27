@@ -2,8 +2,36 @@
 
 <PageTitle>Cart</PageTitle>
 
-@foreach (var item in Global.products){
-    <p>
-        @item.Product.Name : @item.Amount
-    </p>
-}
+<MatList TwoLine="true">
+    @foreach (var item in Global.inCart)
+    {
+        <MatPaper>
+            <div class="mat-layout-grid" align-content="center">
+                <div class="mat-layout-grid-inner">
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1"></div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-6">
+                        <MatListItem>
+                                <MatNumericUpDownField Label="amount" @bind-Value="@item.Amount" Minimum="0">
+                                </MatNumericUpDownField> <MatH5> &emsp; - &emsp; @item.Product.Name </MatH5>
+                        </MatListItem>
+                    </div>
+                    <div class="mat-layout-grid-cell price mat-layout-grid-cell-span-2">
+                        <MatH5> Price: @(@item.Amount*@item.Product.Price) </MatH5>
+                    </div>
+                    <div class="mat-layout-grid-cell price mat-layout-grid-cell-span-2">
+                        <MatIconButton Icon="delete" OnClick="@(@item.remove)"></MatIconButton>
+                    </div>
+
+                    <div class="mat-layout-grid-cell mat-layout-grid-cell-span-1"></div>
+
+                </div>
+            </div>
+        </MatPaper>
+    }
+</MatList>
+
+<div class="full-price">
+    <MatH5> Full price: @Global.FullPrice </MatH5>
+</div>

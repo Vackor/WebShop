@@ -2,17 +2,23 @@
 {
     public partial class Login
     {
-        string username = "";
-        string password = "";
+        // Values entered to login and username fields
+        private string username = "";
+        private string password = "";
 
-        bool snackBarIsOpen = false;
-        void loginOnClick()
+        // is the snackbar visible
+        private bool snackBarIsOpen = false;
+
+        // log in button clicked
+        private void loginOnClick()
         {
+            // if username and password are both correct, it navigates to your profile
             if (username == "reka" && password == "reka") 
             { 
                 Global.loggedIn = true;
                 NavManager.NavigateTo("/profile"); 
             }
+            // else it makes the snackbar visible
             else
             {
                 snackBarIsOpen = true;

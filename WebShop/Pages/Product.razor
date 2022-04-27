@@ -1,4 +1,6 @@
-﻿@page "/product"
+﻿@* individual page of a product where the user can order *@
+
+@page "/product"
 
 <PageTitle>Product</PageTitle>
 
@@ -7,18 +9,23 @@
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-12" align="center">
             <MatH2>
+                @*Product name *@
                 @Global.theChosenOne.Name
             </MatH2>
             <MatDivider></MatDivider>
             <br />
             <br />
         </div>
+        
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-2"></div>
+
         <div class="paper mat-layout-grid-cell mat-layout-grid-cell-span-4">
+            @* Image of the product *@
             <img src="@Global.theChosenOne.ImageUrl" width="100%">
             <br />
             <br />
             
+            @* Set amount to buy and show price *@
             <MatBody1>Amount:</MatBody1>
             <MatNumericUpDownField @bind-Value=@amount DecimalPlaces=0 Minimum=0 Maximum=10></MatNumericUpDownField>
             <br />
@@ -37,6 +44,7 @@
 
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
 
+            @* Allergen table *@
             <MatTable Items="@allergens" ShowPaging="false">
                 <MatTableHeader>
                     <th>Allergen</th>
@@ -52,6 +60,7 @@
             <br />
             <br />
 
+            @* Add to cart button if it is in stock or sold out label is it is not *@
             @if (@Global.theChosenOne.InStock)
             {
                 <div width="100%" align="center">

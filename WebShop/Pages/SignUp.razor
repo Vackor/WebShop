@@ -1,4 +1,6 @@
-﻿@page "/signup"
+﻿@* Sign up page *@
+
+@page "/signup"
 @inject NavigationManager NavManager
 
 <PageTitle>Sign Up</PageTitle>
@@ -6,15 +8,19 @@
 @using System.ComponentModel.DataAnnotations
 @using System.IO
 @using System.Net.Http.Headers
+
+@* Form to fill with user data that can be validated*@
 <EditForm Model="myModel" OnValidSubmit="Success">
     <DataAnnotationsValidator />
 
     <div align="center">
 
+        @* Label *@
         <MatH1>
             Create an account
         </MatH1>
 
+        @* Input fields *@
         <p>
             <MatTextField Label="Username" @bind-Value="myModel.Username" />
             <ValidationMessage For="@(() => myModel.Username)" />
@@ -35,6 +41,7 @@
             <ValidationMessage For="@(() => myModel.Gender)" />
         </p>
 
+        @* Submit button *@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
             <MatButton Type="submit" Raised="true">Sign up</MatButton>
             <MatButton Raised="true" OnClick="Reset">Reset</MatButton>
@@ -43,16 +50,18 @@
     </div>
 
 </EditForm>
-
+ 
 @code {
     [Inject]
     IJSRuntime JS { get; set; }
 
+    // Alert if signing up was successful 
     async Task Success() =>
         await JS.InvokeAsync<object>("alert", "Now you can log in!");
 
 
-    public class LoginModel
+    // Modell class for input values
+    public class SignUpModel
     {
         [Required]
         public string Username { get; set; }
@@ -65,9 +74,10 @@
         public string Gender { get; set; }
 
         [Required]
-        [CustomValidation(typeof(LoginModel), nameof(RequiredDateTime))]
+        [CustomValidation(typeof(SignUpModel), nameof(RequiredDateTime))]
         public DateTime DateOfBirth { get; set; }
 
+        // validation
         public static ValidationResult RequiredDateTime(DateTime value, ValidationContext vc)
         {
             return value > DateTime.MinValue && value <= DateTime.Today

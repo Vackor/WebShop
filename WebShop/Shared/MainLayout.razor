@@ -6,7 +6,7 @@
 @*header*@
 <header>
     @*theme*@
-    <MatThemeProvider Theme="@theme1">
+    <MatThemeProvider Theme="@theme">
         @*AppBar
             - a container
             - the actual appbar
@@ -24,8 +24,8 @@
                         <MatAppBarTitle>WEBSHOP</MatAppBarTitle> @*TODO change text to actual logo or brand name*@
                     </MatAppBarSection>
                     <MatAppBarSection Align="@MatAppBarSectionAlign.End">
-                        <MatTextField Class="searchbar" @bind-Value="@myStringValue" Label="Search"></MatTextField>
-                        <MatIconButton Icon="search"></MatIconButton>
+                        <MatTextField Class="searchbar" @bind-Value="@searchString" Label="Search"></MatTextField>
+                        <MatIconButton Icon="search" OnClick="@searchOnClick"></MatIconButton>
                         <MatIconButton Icon="shopping_cart" OnClick="@cartOnClick"></MatIconButton>
                         <MatIconButton Icon="account_circle" OnClick="@profileOnClick"></MatIconButton>
                     </MatAppBarSection>
@@ -43,6 +43,12 @@
         </MatAppBarContainer>
     </MatThemeProvider>
 </header>
+
+@* Snackbar if not found *@
+    <MatSnackbar @bind-IsOpen="@snackBarIsOpen">
+        <MatSnackbarContent>Not found</MatSnackbarContent>
+    </MatSnackbar>
+
 
 @*footer
     - contacts, info

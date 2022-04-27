@@ -1,27 +1,19 @@
 ﻿namespace WebShop.Pages
 {
 
-    class GenderDef
-    {
-        public string Name { get; set; }
-
-        public GenderDef(string name)
-        {
-            Name = name;
-        }
-    }
-
     public partial class SignUp
     {
-        LoginModel myModel = new LoginModel();
-
-        string[] GenderItems = new[]
+        // Login Model that will help to validate
+        private SignUpModel myModel = new SignUpModel();
+        // Gender options 
+        private string[] GenderItems = new[]
         {
         "Male",
         "Female"
         };
 
-        void Reset()
+        // reset button callback that resets every value
+        private void Reset()
         {
             myModel.Username = null;
             myModel.Password = null;
