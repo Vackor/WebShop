@@ -44,16 +44,16 @@
         <div class="mat-layout-grid-cell mat-layout-grid-cell-span-4">
 
             @* Allergen table *@
-            <MatTable Items="@allergens" ShowPaging="false">
-                <MatTableHeader>
-                    <th>Allergen</th>
-                    <th>Contains</th>
-                </MatTableHeader>
-                <MatTableRow>
-                    <td>@context.Name</td>
-                    <td>@context.Contains</td>
-                </MatTableRow>
-            </MatTable>
+<MatTable Items="@allergens" ShowPaging="false">
+    <MatTableHeader>
+        <th>Allergen</th>
+        <th>Contains</th>
+    </MatTableHeader>
+    <MatTableRow>
+        <td>@context.Name</td>
+        <td>@context.Contains</td>
+    </MatTableRow>
+</MatTable>
 
             <br />
             <br />
