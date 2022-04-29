@@ -5,12 +5,6 @@
     {
         // Login Model that will help to validate
         private SignUpModel myModel = new SignUpModel();
-        // Gender options 
-        private string[] GenderItems = new[]
-        {
-        "Male",
-        "Female"
-        };
 
         // reset button callback that resets every value
         private void Reset()
